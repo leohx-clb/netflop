@@ -1,0 +1,15 @@
+<div class="card bg-dark text-white">
+  <img src="{{serial.picture}}" class="card-img">
+  <div class="card-img-overlay text-center">
+    <h3 class="card-title">{{serial.name}}</h3>
+    <h5>Date de sortie : {{serial.releaseDate | date}}</h5>
+    <p class="card-text">Description : {{serial.description}}</p>
+    <p class="card-text">Critique : {{serial.review}}</p>
+  </div>
+</div>
+
+<app-remarks-form
+  [remarks]="serial.remarks"
+  (formSubmitted)="askToAddRemark($event, serial.id)"
+></app-remarks-form>
+

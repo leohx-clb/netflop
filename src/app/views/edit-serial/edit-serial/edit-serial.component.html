@@ -1,0 +1,8 @@
+<app-serial-form
+  *ngIf="serial"
+  title="ÉDITION D'UNE SERIE"
+  submitLabel="ÉDITER"
+  [serialToEdit]="serial"
+  (formSubmitted)="askToEditSerial($event)"
+>
+</app-serial-form>

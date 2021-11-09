@@ -1,0 +1,23 @@
+<nav class="navbar navbar-dark bg-dark mb-3">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="login">
+      <img src="https://cdn-icons.flaticon.com/png/512/2504/premium/2504929.png?token=exp=1634759871~hmac=150c998bc500a4bb23aad94d22d5fef5" alt="" width="30" height="24" class="d-inline-block align-text-top">
+      NetFlox
+    </a>
+
+    <button
+      *ngIf="isConnected"
+      [routerLink]="['/home']"
+      class="btn btn-outline-danger"
+      >
+      ACCUEIL
+    </button>
+
+  <button
+    *ngIf="isConnected"
+    class="btn btn-outline-danger"
+    (click)="onClickSignout()">
+    ME DECONNECTER
+  </button>
+  </div>
+</nav>

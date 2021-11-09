@@ -1,0 +1,55 @@
+<form
+  [formGroup]="remarkForm"
+  (ngSubmit)="onSubmitRemarkForm()"
+  class="card p-2">
+
+  <div class="mb-3">
+    <label for="author">Auteur</label>
+    <input
+      id="author"
+      formControlName="author"
+      class="form-control"
+      placeholder="Author"
+      [(ngModel)]="remark.author">
+
+    <app-errors-form
+      [control]="this.remarkForm.controls.require"
+      controlLabel="'Author'">
+    </app-errors-form>
+  </div>
+
+  <div class="mb-3">
+    <label for="description">Description</label>
+    <input
+      id="description"
+      formControlName="description"
+      class="form-control"
+      placeholder="Description"
+      [(ngModel)]="remark.description">
+
+    <app-errors-form
+      [control]="this.remarkForm.controls.require"
+      controlLabel="'Description'">
+    </app-errors-form>
+  </div>
+
+  <button type="submit" class="d-grid col-4 mx-auto btn btn-success" [disabled]="remarkForm.invalid">
+    ENVOYER
+  </button>
+
+</form>
+
+<ng-container *ngFor="let remark of remarks">
+  <!--card remark -->
+  <div class="card">
+    <div class="card-header">
+      {{remark.author}}
+    </div>
+    <div class="card-body">
+      <blockquote class="blockquote mb-0">
+        <p>{{remark.description}}</p>
+        <footer class="blockquote-footer">Date : <cite title="Source Title">{{remark.creationDate | date}}</cite></footer>
+      </blockquote>
+    </div>
+  </div>
+</ng-container>

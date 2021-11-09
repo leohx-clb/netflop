@@ -1,0 +1,18 @@
+<th scope="row">{{id}}</th>
+<td>{{name}}</td>
+<td>{{releaseDate | date}}</td>
+<td>
+  <div class="input-group">
+  <button class="btn btn-info"
+              [routerLink]="['/detail',id]"
+  >Detail</button>
+
+  <button class="btn btn-warning"
+          [routerLink]="['/serials',id,'edit']"
+  >Modifier</button>
+
+  <button class="btn btn-danger"
+          (click)="onClickDeleteSerial()"
+  >Supprimer</button>
+  </div>
+</td>

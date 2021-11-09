@@ -1,0 +1,86 @@
+<div class="row col-6 card shadow mx-auto mt-3">
+
+  <h3 class="text-center mt-3">{{title}}</h3>
+
+  <form [formGroup]="serialForm" (ngSubmit)="onSubmitSerialForm()" class="my-3">
+
+    <div class="mb-3">
+      <label for="name">Nom</label>
+      <input
+        id="name"
+        formControlName="name"
+        class="form-control"
+        placeholder="Name"
+        [(ngModel)]="serial.name">
+
+      <app-errors-form
+        [control]="this.serialForm.controls.name"
+        controlLabel="'Name'">
+      </app-errors-form>
+    </div>
+
+    <div class="mb-3">
+      <label for="releaseDate">Date de sortie</label>
+      <input id="releaseDate" type="date" formControlName="releaseDate" class="form-control" placeholder="Date de sortie" [(ngModel)]="serial.releaseDate">
+
+      <app-errors-form
+        [control]="this.serialForm.controls.date"
+        controlLabel="'Date de sortie'">
+      </app-errors-form>
+    </div>
+
+    <div class="mb-3">
+      <label for="description">Decription</label>
+      <input
+        id="description"
+        formControlName="description"
+        class="form-control"
+        placeholder="Decription"
+        [(ngModel)]="serial.description">
+
+      <app-errors-form
+        [control]="this.serialForm.controls.require"
+        controlLabel="'Description'">
+      </app-errors-form>
+    </div>
+
+    <div class="mb-3">
+      <label for="review">Critique</label>
+      <input
+        id="review"
+        formControlName="review"
+        class="form-control"
+        placeholder="Review"
+        [(ngModel)]="serial.review">
+
+      <app-errors-form
+        [control]="this.serialForm.controls.require"
+        controlLabel="'Review'">
+      </app-errors-form>
+    </div>
+
+    <div class="mb-3">
+      <label for="picture">URL image</label>
+      <input
+        id="picture"
+        formControlName="picture"
+        class="form-control"
+        placeholder="Picture"
+        [(ngModel)]="serial.picture">
+
+      <app-errors-form
+        [control]="this.serialForm.controls.require"
+        controlLabel="'Picture'">
+      </app-errors-form>
+    </div>
+
+    <button type="submit" class="d-grid col-4 mx-auto btn btn-dark" [disabled]="serialForm.invalid">
+      {{submitLabel}}
+    </button>
+  </form>
+
+  <a routerLink="/home" class="text-center text-dark mb-2">
+    RETOUR
+  </a>
+
+</div>
